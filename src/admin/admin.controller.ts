@@ -12,7 +12,7 @@ import {
 import { AdminService } from './admin.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Admin } from './models/admin.model';
 import { ActivateAdminDto } from './dto/activate-admin.dto';
 import { DeactivateAdminDto } from './dto/deactivate-admin.dto';
@@ -20,6 +20,7 @@ import { AdminSelfGuard } from '../common/guards';
 import { CreatorGuard } from '../common/guards/creator.guard';
 
 @ApiTags('Admin')
+// @ApiBearerAuth()
 @Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
