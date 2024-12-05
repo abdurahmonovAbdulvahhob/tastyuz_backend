@@ -25,8 +25,8 @@ export class CreateProductDto {
   price: number;
 
   @ApiProperty({
-    example: 'image.png',
-    description: 'image of the product',
+    example: 'https://www.example.com/image.png',
+    description: 'url of the image of the product',
   })
   @IsString()
   image: string;

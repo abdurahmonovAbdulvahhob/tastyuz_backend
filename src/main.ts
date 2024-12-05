@@ -15,13 +15,15 @@ async function start() {
     });
     app.useGlobalPipes(new ValidationPipe());
     app.use(cookieParser());
-    app.useGlobalFilters(new AllExceptionsFilter)
+    app.useGlobalFilters(new AllExceptionsFilter());
 
     const config = new DocumentBuilder()
+      // .addBearerAuth(
+      //   { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
+      //   'access-token',
+      // )
       .setTitle('TastyUZ')
-      .setDescription(
-        "TastyUZ saytining Swagger REST API proyekti",
-      )
+      .setDescription('TastyUZ saytining Swagger REST API proyekti')
       .setVersion('1.0')
       .addTag('nestjs,validation,swagger,sequelize,pg,guard')
       .build();

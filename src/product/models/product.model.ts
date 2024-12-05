@@ -62,7 +62,7 @@ export class Product extends Model<Product, IProductCreationAttr> {
     description: 'Image of the product',
   })
   @Column({
-    type: DataType.STRING(100),
+    type: DataType.STRING(255),
   })
   image: string;
 
