@@ -23,9 +23,11 @@ export class AdminService {
       throw new BadRequestException('Passwords do not match');
     }
     const hashedPassword = await bcrypt.hash(createAdminDto.password, 3);
+
     const newAdmin = await this.adminModel.create({
       ...createAdminDto,
       hashed_password: hashedPassword,
+      is_creator: false,
     });
     return newAdmin;
   }
@@ -49,7 +51,7 @@ export class AdminService {
       }
       const hashed_password = await bcrypt.hash(updateAdminDto.password, 3);
       return await this.adminModel.update(
-        { ...updateAdminDto, hashed_password },
+        { ...updateAdminDto, hashed_password,is_creator:false },
         { where: { id }, returning: true },
       );
     }

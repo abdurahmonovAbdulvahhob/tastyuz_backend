@@ -39,10 +39,4 @@ export class CreateAdminDto {
   @IsBoolean()
   is_active: boolean;
 
-  @ApiProperty({
-    example: true,
-    description: "Admin's role (creator/non-creator)",
-  })
-  is_creator: boolean;
-
 }

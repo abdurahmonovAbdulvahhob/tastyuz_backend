@@ -31,7 +31,6 @@ export class CreateProductDto {
   @IsString()
   image: string;
 
-
   @ApiProperty({
     example: '1',
     description: 'categoryId of the product',
@@ -52,5 +51,6 @@ export class CreateProductDto {
     description: 'avg rating of the product',
   })
   @IsNumber()
-  average_rating: number;
+  @IsOptional()
+  average_rating?: number;
 }

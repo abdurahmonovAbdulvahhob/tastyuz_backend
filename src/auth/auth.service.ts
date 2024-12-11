@@ -54,7 +54,9 @@ export class AuthService {
 
   async signUpAdmin(createAdminDto: CreateAdminDto, res: Response) {
     const newAdmin = await this.adminService.create(createAdminDto);
-
+    newAdmin.is_creator = false;
+    await newAdmin.save();
+    console.log(newAdmin)
     if (!newAdmin) {
       throw new InternalServerErrorException("Yangi Admin qo'shishda xatolik");
     }
