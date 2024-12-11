@@ -12,11 +12,11 @@ export class ProductService {
   }
 
   findAll() {
-    return this.productModel.findAll({ include: { all: true } });
+    return { products: this.productModel.findAll({ include: { all: true } }),total: this.productModel.count() };
   }
 
   findOne(id: number) {
-    return this.productModel.findOne({ where: { id },include: { all: true } });
+    return this.productModel.findOne({ where: { id }, include: { all: true } });
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {
